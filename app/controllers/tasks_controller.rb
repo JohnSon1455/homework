@@ -45,6 +45,6 @@ class TasksController < ApplicationController
     end
 
     def find_user_task
-		@task = current_user.task.find(params[:id])
+		@task = current_user.Task.find(params[:id])
 	end
 end
