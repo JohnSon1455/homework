@@ -1,6 +1,6 @@
 class BucketsController < ApplicationController
 	before_action :check_login!, except: [:index, :show]
-    before_action :find_user_bucket, only: [:edit, :destroy]
+    before_action :find_user_bucket, only: [:create, :show, :destroy]
 
     def index
         @empty_buckets = current_user.buckets.get_by_status("Empty")
@@ -45,6 +45,6 @@ class BucketsController < ApplicationController
     end
 
     def find_user_bucket
-		@bucket = current_user.buckets.find(params[:bucket_id])
+		@bucket = current_user.buckets.includes(:user)
 	end
 end

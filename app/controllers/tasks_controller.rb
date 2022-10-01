@@ -45,6 +45,6 @@ class TasksController < ApplicationController
     end
 
     def find_user_task
-		@task = current_user.tasks.find(params[:id])
+		@task = current_user.tasks.includes(:user)
 	end
 end
