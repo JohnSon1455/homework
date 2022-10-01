@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 		collection do
 			get :sign_up   
 			get :sign_in
+			get :profile
 		end
 	end
 	post "/users/sign_in", to: "sessions#create", as: "login"

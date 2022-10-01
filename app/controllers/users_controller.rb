@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 
 		if @user.save
-			redirect_to "root_path"
+			redirect_to "/"
 		else
 			render :sign_up
 		end
@@ -24,7 +24,8 @@ class UsersController < ApplicationController
 	def user_params
 		params.require(:user).permit(:email,
 			                           :password,
-																 :password_confirmation)
+																 :password_confirmation,
+																 :account)
 	end
 	
 end

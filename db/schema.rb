@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_30_063635) do
+ActiveRecord::Schema.define(version: 2022_10_01_015803) do
 
   create_table "buckets", force: :cascade do |t|
     t.string "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2022_09_30_063635) do
     t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "account"
   end
 
   add_foreign_key "tasks", "buckets"

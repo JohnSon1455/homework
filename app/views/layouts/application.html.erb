@@ -4,10 +4,10 @@
     <title>TaskManager</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <!--
+  
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    -->
+  
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- jQuery library -->
@@ -15,19 +15,11 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-<nav>
-  <% if user_signed_in? %>
-    <%= link_to "登出", logout_path, method: "delete" %> |
-    <%= current_user.email %>
-  <% else %>
-    <%= link_to "登入", sign_in_users_path %> |
-    <%= link_to "註冊", sign_up_users_path %>
-  <% end %>
-</nav>
   <body style="margin: 4em">
+    <%= render "shared/navbar" %>
     <%= link_to "All Buckets", buckets_path%>
     <%= link_to "All Tasks", tasks_path%>
-    <%= link_to "Profile", users_path%>
+    <%= link_to "Profile", profile_users_path%>
     <%= yield %>
   </body>
 </html>
