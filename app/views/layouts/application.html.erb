@@ -15,11 +15,17 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-  <body style="margin: 4em">
+  <body  class="text-center" style="margin: 4em">
     <%= render "shared/navbar" %>
-    <%= link_to "All Buckets", buckets_path%>
-    <%= link_to "All Tasks", tasks_path%>
+  <div class="container">
+    <div class="row">
+    <button type="button">
+    <%= link_to "All Buckets", buckets_path%> | 
+    <%= link_to "All Tasks", tasks_path%> |
     <%= link_to "Profile", profile_users_path%>
+    </button>  
     <%= yield %>
+    </div>
+  </div>
   </body>
 </html>

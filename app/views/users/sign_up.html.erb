@@ -10,24 +10,19 @@
 <%= form_for(@user, url: "/users") do |f| %>
 
 <div class="field">
-  <%= f.label :email %>
+  <%= f.label "您的E-mail" %>
   <%= f.email_field :email %>
 </div>
 
 <div class="field">
-  <%= f.label :password %>
+  <%= f.label "請輸入密碼" %>
   <%= f.password_field :password %>
 </div>
 
 <div class="field">
-  <%= f.label :password_confirmation %>
+  <%= f.label "再確認密碼" %>
   <%= f.password_field :password_confirmation %>
 </div>
 
-<div class="field">
-  <%= f.label :account %>
-  <%= f.text_field :account %>
-</div>
-
-<%= f.submit %>
+<%= f.submit "創建帳號"%>
 <% end %>

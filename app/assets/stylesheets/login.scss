@@ -1,0 +1,37 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+$loginFormWidth: 360px;
+$formMainFont:16px;
+$toolBarFont: 16px;
+$loginTitleFont: 32px;
+$formTextBoxTextFont: 16px;
+$formTextBoxBorderFont: 40px;
+$textColor: #cccc;
+$mainLeftMargin: 24px;
+//註冊登入表單
+.login_form{
+    width: auto;
+    margin: auto;
+    
+
+    .login_label{
+        font-size: $formMainFont;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+
+    .login_textbox{
+        font-size: $formTextBoxTextFont;
+        line-height: $formTextBoxBorderFont;
+        margin-bottom: 20px;
+        .form_textbox{
+            padding-left: 12px;
+            width: 100%;
+        }
+    }
+
+    .login_error {
+        font-size: $formTextBoxTextFont;
+    }
+}

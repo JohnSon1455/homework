@@ -1,9 +1,15 @@
 <nav>
+  <div class="container login_form">
   <% if user_signed_in? %>
-    <%= link_to "登出", logout_path, method: "delete" %> |
+    <div class="login_label">
+    <%= link_to "登出", logout_path, method: "delete" %> 
     <%= current_user.email %>
+    </div>
   <% else %>
-    <%= link_to "登入", sign_in_users_path %> |
+    <div class="login_label">
+    <%= link_to "登入", sign_in_users_path %>
     <%= link_to "註冊", sign_up_users_path %>
+    </div>
   <% end %>
+  </div>
 </nav>

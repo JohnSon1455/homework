@@ -2,14 +2,14 @@
 
 <%= form_for(@user, url: login_path) do |f| %>
   <div class="field">
-    <%= f.label :email %>
+    <%= f.label "您的E-mail" %>
     <%= f.email_field :email %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label "請輸入密碼" %>
     <%= f.password_field :password %>
   </div>
 
-  <%= f.submit "Login" %>
+  <%= f.submit "登入" %></div>
 <% end %>
