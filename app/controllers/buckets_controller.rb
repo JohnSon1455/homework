@@ -1,11 +1,11 @@
 class BucketsController < ApplicationController
-    before_action :find_user_bucket, only: [:edit, :update, :destroy]
 	before_action :check_login!, except: [:index, :show]
+    before_action :find_user_bucket, only: [:edit, :destroy]
 
     def index
-        @empty_buckets = Bucket.get_by_status("Empty")
-        @pending_buckets = Bucket.get_by_status("Pending")
-        @completed_buckets = Bucket.get_by_status("Completed")
+        @empty_buckets = current_user.buckets.get_by_status("Empty")
+        @pending_buckets = current_user.buckets.get_by_status("Pending")
+        @completed_buckets = current_user.buckets.get_by_status("Completed")
     end
 
     def new
@@ -45,6 +45,6 @@ class BucketsController < ApplicationController
     end
 
     def find_user_bucket
-		@bucket = current_user.buckets.find(params[:id])
+		@bucket = current_user.buckets.find(params[:bucket_id])
 	end
 end

@@ -1,10 +1,10 @@
 class TasksController < ApplicationController
-    before_action :find_user_task, only: [:edit, :update, :destroy]
-	before_action :check_login!, except: [:index, :show]
+	before_action :check_login!
+    before_action :find_user_task, only: [:create, :destroy]
 
     def index
-        @pending_tasks = Task.get_by_status("Pending")
-        @completed_tasks = Task.get_by_status("Completed")
+        @pending_tasks = current_user.tasks.get_by_status("Pending")
+        @completed_tasks = current_user.tasks.get_by_status("Completed")
     end
 
     def new
