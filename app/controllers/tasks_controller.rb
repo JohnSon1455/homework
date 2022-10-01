@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+    before_action :find_user_task, only: [:edit, :update, :destroy]
+	before_action :check_login!, except: [:index, :show]
+
     def index
         @pending_tasks = Task.get_by_status("Pending")
         @completed_tasks = Task.get_by_status("Completed")
@@ -38,6 +41,10 @@ class TasksController < ApplicationController
 
     private
     def post_params(*args)
-        params.require(:task).permit(*args)
+        params.require(:task).permit(*args).merge(user_id: current_user.id)
     end
+
+    def find_user_task
+		@task = current_user.task.find(params[:id])
+	end
 end

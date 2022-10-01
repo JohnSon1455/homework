@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
+  belongs_to :user
   belongs_to :bucket
 
   def self.get_by_status(status)

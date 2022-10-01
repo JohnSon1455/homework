@@ -1,5 +1,9 @@
+require 'digest'
+
 class User < ApplicationRecord
-  require 'digest'
+
+  has_many :tasks
+  has_many :buckets
 
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, confirmation: true

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_01_015803) do
+ActiveRecord::Schema.define(version: 2022_10_01_074804) do
 
   create_table "buckets", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2022_10_01_015803) do
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_buckets_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -27,7 +29,9 @@ ActiveRecord::Schema.define(version: 2022_10_01_015803) do
     t.integer "bucket_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
     t.index ["bucket_id"], name: "index_tasks_on_bucket_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,5 +42,7 @@ ActiveRecord::Schema.define(version: 2022_10_01_015803) do
     t.string "account"
   end
 
+  add_foreign_key "buckets", "users"
   add_foreign_key "tasks", "buckets"
+  add_foreign_key "tasks", "users"
 end

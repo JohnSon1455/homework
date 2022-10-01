@@ -6,12 +6,12 @@ class ApplicationController < ActionController::Base
 	private
 
   def user_signed_in?
-    session[:password] != nil
+    session[:mypassword] != nil
   end
 
   def current_user
     if user_signed_in?
-      User.find(session[:password])
+      User.find(session[:mypassword])
     else
       nil
     end

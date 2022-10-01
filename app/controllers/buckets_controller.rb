@@ -1,4 +1,7 @@
 class BucketsController < ApplicationController
+    before_action :find_user_bucket, only: [:edit, :update, :destroy]
+	before_action :check_login!, except: [:index, :show]
+
     def index
         @empty_buckets = Bucket.get_by_status("Empty")
         @pending_buckets = Bucket.get_by_status("Pending")
@@ -38,6 +41,10 @@ class BucketsController < ApplicationController
 
     private
     def post_params(*args)
-        params.require(:bucket).permit(*args)
+        params.require(:bucket).permit(*args).merge(user_id: current_user.id)
     end
+
+    def find_user_bucket
+		@bucket = current_user.bucket.find(params[:id])
+	end
 end
