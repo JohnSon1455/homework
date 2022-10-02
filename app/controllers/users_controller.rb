@@ -17,9 +17,15 @@ class UsersController < ApplicationController
 		end
 	end
 
+  def destroy
+		@user = User.find(current_user.id).destroy
+		session[:user_token] = nil
+		redirect_to "/"
+  end
+
   def profile
 	end
-	
+
 	private
 	def user_params
 		params.require(:user).permit(:email,

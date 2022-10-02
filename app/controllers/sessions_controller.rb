@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
                         password: hashed_password)
 
     if user
-      session[:mypassword] = user.id
+      session[:user_token] = user.id
       redirect_to "/"
     else
       redirect_to "/users/sign_in"
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:mypassword] = nil
+    session[:user_token] = nil
     redirect_to "/"
   end
 

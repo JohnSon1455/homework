@@ -2,8 +2,8 @@ require 'digest'
 
 class User < ApplicationRecord
 
-  has_many :tasks
-  has_many :buckets
+  has_many :tasks, dependent: :destroy
+  has_many :buckets, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, confirmation: true
