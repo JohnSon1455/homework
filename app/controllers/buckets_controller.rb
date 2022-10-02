@@ -29,7 +29,6 @@ class BucketsController < ApplicationController
 
     def update
         @bucket = Bucket.find(params[:id])
-        @bucket.update(post_params(:name, :description))
         @bucket.update_status
         redirect_to bucket_path(@bucket)
     end

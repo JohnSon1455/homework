@@ -16,13 +16,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body  class="text-center" style="margin: 4em">
-    <%= render "shared/navbar" %>
+    <%= render "shared/navbar"%>
   <div class="container">
     <div class="row">
     <button type="button">
     <%= link_to "All Buckets", buckets_path%> | 
-    <%= link_to "All Tasks", tasks_path%> |
+    <%= link_to "All Tasks", tasks_path%>
+    <% if user_signed_in? %>  |
     <%= link_to "Profile", profile_users_path%>
+    <% end %>
     </button>  
     <%= yield %>
     </div>

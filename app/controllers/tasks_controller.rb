@@ -12,15 +12,15 @@ class TasksController < ApplicationController
     end
 
     def create
-        if current_user.tasks == []
-            redirect_to "/"
-        else
-            @task = Task.create(post_params(:name, :description, :bucket_id))
-            @task.status = "Pending"
-            @task.save
-            @task.bucket.update_status
-            redirect_to task_path(@task)
-        end
+        @task = Task.create(post_params(:name, :description, :bucket_id))
+        @task.status = "Pending"
+        @task.save
+            if current_user.tasks == []
+                redirect_to "/"
+            else
+                @task.bucket.update_status
+                redirect_to task_path(@task)
+            end
     end
 
     def show
