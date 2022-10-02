@@ -1,5 +1,5 @@
 class BucketsController < ApplicationController
-	before_action :check_login!, except: [:index, :show]
+	before_action :check_login!
     before_action :find_user_bucket, only: [:create, :show, :destroy]
 
     def index
