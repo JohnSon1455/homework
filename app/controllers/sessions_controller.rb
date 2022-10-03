@@ -2,7 +2,6 @@ require 'digest'
 
 class SessionsController < ApplicationController
   def create
-    # 驗證 email & password
     pw = user_params[:password]
     salted_pw = "c1#{pw}css#{pw}82$$c"
     hashed_password = Digest::SHA1.hexdigest(salted_pw)

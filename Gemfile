@@ -51,6 +51,7 @@ group :test do
   gem 'rspec-rails', :group => [:development, :test]
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 5.2'
 end
 
