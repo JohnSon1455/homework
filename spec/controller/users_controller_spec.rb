@@ -1,7 +1,7 @@
 require "spec_helper"
 require "rails_helper"
 
-describe User do
+describe UsersController do
   before { @user = User.new(email: "user@example.com",
                             password: "foobar", password_confirmation: "foobar"
                             ) }
